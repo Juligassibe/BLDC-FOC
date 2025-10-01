@@ -1,3 +1,3 @@
-[submodule "componentes/MT6835"]
-	path = componentes/MT6835
+[submodule "components/MT6835"]
+	path = components/MT6835
 	url = https://github.com/Juligassibe/MT6835.git
