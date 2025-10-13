@@ -1,3 +1,6 @@
 [submodule "components/MT6835"]
 	path = components/MT6835
 	url = https://github.com/Juligassibe/MT6835.git
+[submodule "components/INA3221"]
+	path = components/INA3221
+	url = https://github.com/Juligassibe/INA3221.git
