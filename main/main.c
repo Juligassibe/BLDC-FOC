@@ -1,23 +1,25 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "mt6835.h"
+#include "ina3221.h"
 #include "initGPIO.h"
 #include "initTimers.h"
 #include "initSPI.h"
+#include "initI2C.h"
 
 spi_device_handle_t mt6835;
+i2c_master_bus_handle_t busI2C;
+i2c_master_dev_handle_t ina3221;
 
 void app_main(void) {
     ESP_ERROR_CHECK(initGPIO());
     //ESP_ERROR_CHECK(initTimers());
     ESP_ERROR_CHECK(initSPI());
+    ESP_ERROR_CHECK(initI2C());
 
-    uint8_t num = 0;
+    uint16_t config = 0;
     
-    while (1) {
-        mt6835_set_user_id(&mt6835, num);
-        mt6835_get_user_id(&mt6835, &num);
-        num++;
-        vTaskDelay(pdMS_TO_TICKS(1000));
-    }
+    ina3221_get_config(&ina3221, &config);
+
+    printf("Config: %d\n", config);
 }

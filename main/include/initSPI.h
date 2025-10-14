@@ -1,3 +1,6 @@
+#ifndef INITSPI_H
+#define INITSPI_H
+
 #include "driver/spi_master.h"
 #include "driver/gpio.h"
 #include "esp_err.h"
@@ -11,6 +14,4 @@ extern spi_device_handle_t mt6835;
 
 esp_err_t initSPI();
 
-
-
-
+#endif

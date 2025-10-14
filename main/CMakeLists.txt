@@ -1,4 +1,4 @@
 idf_component_register(
-    SRCS "initTimers.c" "initGPIO.c" "initSPI.c" "main.c"
+    SRCS "initI2C.c" "initTimers.c" "initGPIO.c" "initSPI.c" "main.c"
     INCLUDE_DIRS "include/"
 )
