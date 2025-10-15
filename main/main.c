@@ -17,9 +17,14 @@ void app_main(void) {
     ESP_ERROR_CHECK(initSPI());
     ESP_ERROR_CHECK(initI2C());
 
-    uint16_t config = 0;
+    uint16_t config = CH1_EN | AVG_4_SAMPLE | SHUNT_CT_1MS | MODE_SHUNT_CONT;
     
-    ina3221_get_config(&ina3221, &config);
+    ina3221_set_config(&ina3221, config);
 
-    printf("Config: %d\n", config);
+    int16_t ch1Shunt = 0;
+
+    ina3221_get_ch1_shunt(&ina3221, &ch1Shunt);
+
+    printf("Voltaje shunt: %f\n", ch1Shunt*0.000040);
+    printf("Corriente: %f\n", ch1Shunt*0.000040 / 0.1);
 }
